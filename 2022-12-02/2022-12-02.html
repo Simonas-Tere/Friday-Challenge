@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Java friday</title>
+</head>
+<body>
+    <script>
+        function rand(min, max) {
+        min = Math.ceil(min);
+        max = Math.floor(max);
+        return Math.floor(Math.random() * (max - min + 1) + min);
+        }
+
+        // 1 užduotis
+
+        let random = rand(5,3000);
+        if(random < 1000){
+            console.log('Žvakių yra: ', random, ',kaina yra:',random, '€');
+        }
+        else if(1000 < random < 2000){
+            let three = random * 3 / 100;
+            let final = random - three;
+            console.log('Žvakių yra: ', random, ',kaina yra:',final, '€');
+        }
+        else{
+            let four = random * 4 / 100;
+            let final = random - four; 
+            console.log('Žvakių yra: ', random, ',kaina yra:',final, '€');
+        }
+        
+        // 2 užduotis
+
+        let random1 = rand(0, 100);
+        let random2 = rand(0, 100);
+        let random3 = rand(0, 100);
+        let vid = 0;
+        vid = (random1 + random2 + random3)/3; 
+        if(10 > vid){
+            console.log('Vidurkis neegzistuoja');
+        }
+        else if(vid > 90){
+            console.log('Vidurkis neegzistuoja');
+        }
+        else{
+            console.log('Vidurkis yra:', Math.round (vid), ', neapvalintas vidurkis:', vid );
+        }
+
+        // 3 užduotis
+
+        function fn(t) {
+        if (String(t).length == 1) t = "0" + t;
+        return t;
+        }
+        let t1 = rand(0, 86399) * 1000;
+        t1 += 100000000000;//1970-01-01 00:00:00
+        let t2 = rand(0, 300) * 1000;
+        t2 += t1;
+        t1 = new Date(t1);
+        t2 = new Date(t2);
+        console.log(fn(t1.getHours()) + ":" + fn(t1.getMinutes()) + ":" + fn(t1.getSeconds()));
+        console.log(fn(t2.getHours()) + ":" + fn(t2.getMinutes()) + ":" + fn(t2.getSeconds()) + " - su pridėtu laiku");
+    </script>
+</body>
+</html>
